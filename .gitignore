@@ -1,39 +1,52 @@
-# Node dependencies
+# Node modules
 node_modules/
 
+# Dependency lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
 # Log files
-*.log
+npm-debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.sublime-project
+*.sublime-workspace
 
 # OS generated files
 .DS_Store
 Thumbs.db
-
-# Environment variables
-.env
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 
 # Build output
 dist/
 build/
 out/
+.next/
 
-# IDE files
-.vscode/
-.idea/
-*.suo
-*.ntvs_analysis.dat
-*.njsproj
-*.sln
-*.sw?
-
-# npm package lock
-package-lock.json
-
-# Yarn
-yarn.lock
-
-# Coverage directory
-coverage/
+# Cache directories
+.cache/
+.eslintcache
 
 # Miscellaneous
 *.bak
 *.tmp
+.turbo/
