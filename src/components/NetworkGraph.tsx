@@ -16,11 +16,15 @@ import { useApp } from "@/contexts/AppContext";
 import UserNode from "./UserNode";
 import { User } from "@/types/user";
 
+interface NetworkGraphProps {
+  onUserDrop?: (userId: string) => void;
+}
+
 const nodeTypes = {
   userNode: UserNode,
 };
 
-const NetworkGraph: React.FC = () => {
+const NetworkGraph: React.FC<NetworkGraphProps> = ({ onUserDrop }) => {
   const { users, linkUsers, getPopularityScore } = useApp();
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -45,6 +49,7 @@ const NetworkGraph: React.FC = () => {
           user,
           score,
           isPopular,
+          onDrop: onUserDrop,
         },
       };
     });
@@ -68,7 +73,7 @@ const NetworkGraph: React.FC = () => {
 
     setNodes(graphNodes);
     setEdges(graphEdges);
-  }, [users, getPopularityScore, setNodes, setEdges]);
+  }, [users, getPopularityScore, setNodes, setEdges, onUserDrop]);
 
   const onConnect = useCallback(
     (connection: Connection) => {
