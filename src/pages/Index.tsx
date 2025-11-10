@@ -64,7 +64,7 @@ const IndexContent: React.FC = () => {
 
         {/* Graph */}
         <main className="flex-1 relative">
-          <NetworkGraph />
+          <NetworkGraph onUserDrop={handleDrop} />
           <div className="absolute top-4 left-4 bg-card/90 backdrop-blur-sm rounded-lg p-4 border border-border shadow-lg">
             <h3 className="font-semibold text-sm mb-2 flex items-center gap-2">
               <Heart className="w-4 h-4 text-accent" />
